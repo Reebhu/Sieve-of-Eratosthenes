@@ -6,11 +6,16 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Description.
- * @author INSERT USERNAME
+ * Main logical class with logic for Sieve Of Eratosthenes
+ * @author Reebu, Mukherjee
  */
 public class SieveOfEratosthenes
 {
+    /**
+     * Calls {@link SieveOfEratosthenes#useSieveOfEratosthenes(int[])} to return the primes in given range
+     * @param range
+     * @return
+     */
     public List<Integer> findPrimes(Integer range)
     {
         int numberList[] = new int[range - 1];
@@ -24,6 +29,7 @@ public class SieveOfEratosthenes
     }
 
     /**
+     * Method for returning primes from the given array
      * @param primes
      * @return
      */
@@ -32,27 +38,20 @@ public class SieveOfEratosthenes
         int length = numberList.length;
         boolean sieveOfEratosthenes[] = new boolean[length];
         Arrays.fill(sieveOfEratosthenes, true);
-        int outer = 0;
-        int inner = 0;
         List<Integer> primes = new ArrayList<>();
         for (int i = 2; i*i < length; i++)
         {
-            outer++;
             if (sieveOfEratosthenes[(i - 2)])
             {
                 for (int j = i *2; j <= length; j+=i)
                 {
                     if (sieveOfEratosthenes[(j - 2)] && j % i == 0)
                     {
-                        inner++;
                         sieveOfEratosthenes[j - 2] = false;
                     }
                 }
             }
         }
-
-        System.out.println("Outer loop: " + outer);
-        System.out.println("Inner loop: " + inner);
         for (int i = 0; i < numberList.length - 1; i++)
         {
             if (sieveOfEratosthenes[i] == true)
