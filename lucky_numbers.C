@@ -14,20 +14,20 @@ int main(void) {
     {
         if(b[i]==1)
         {
-        int k =a[i];
-        int count =0;
-        for(j=0;j<n;j++)
-        {
-            if(b[j]==1)
-            {
-                count++;
-                if(count==k)
-                {
-                    b[j]=0;
-                    count=0;
-                }
-            }
-        }
+        	int k =a[i];
+        	int count =0;
+        	for(j=0;j<n;j++)
+        	{
+            		if(b[j]==1)
+			{
+            		    count++;
+           		    if(count==k)
+                	    {
+                    		b[j]=0;
+                    		count=0;
+                	    }
+            		}
+        	}
         }
     }
     for(i=0;i<n;i++)
